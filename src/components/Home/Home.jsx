@@ -1,78 +1,60 @@
 import React, { useEffect, useState } from "react";
 import cover from "../../../public/images/coverPhoto.jpg";
-import card1 from "../../../public/images/food (1).jpeg";
-import { Card, CardGroup } from "react-bootstrap";
-import { useLoaderData, useParams } from "react-router-dom";
-import RecipeCard from "../RecipeCard/RecipeCard";
+import { Button, Card, CardGroup, Col, Container, Row } from "react-bootstrap";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+import './Home.css'
+
 
 const Home = () => {
-    const [recipeData, setRecipeData] = useState([]);
+  const [recipeData, setRecipeData] = useState([]);
 
-    useEffect(() => {
-      fetch("http://localhost:5000/data")
-        .then((response) => response.json())
-        .then((data) => setRecipeData(data));
-    }, []);
-  
-    console.log(recipeData);
+  useEffect(() => {
+    fetch("http://localhost:5000/data")
+      .then((response) => response.json())
+      .then((data) => setRecipeData(data));
+  }, []);
 
-    // const [data, setData] = useState([]);
-    // useEffect(()=>{
-    //     fetch('http://localhost:5000/data')
-    //     .then (res=> res.json())
-    //     .then (data => setData (data))
-    //     .catch(error => console.error(error))
-    // },[])
+  console.log(recipeData);
+
   return (
-    <div>
-        
-      {/* <img style={{ height: "40px" }} src= alt="" /> */}
-      <div>
-        <CardGroup>
-          <Card>
-            {/* <Card.Img variant="top" className="position-absolute w-100 h-100" src={} /> */}
-            <Card.Body>
-              <Card.Title>{}</Card.Title>
-              <Card.Text>
-                {chefName}This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This card has supporting text below as a natural lead-in to
-                additional content.{" "}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This card has even longer content
-                than the first to show that equal height action.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-        </CardGroup>
+
+
+<div className="cardBody">
+{recipeData[0]?.recipes.map((recipe) => (
+          <div key={recipe.id} className="res-card">
+            <img className="fluid w-100" src={recipe.chefPhoto} alt="" />
+            <h2>{recipe.chefName}</h2>
+            <p>{recipe.bio}</p>
+            <p><small>Experience: {recipe.yearOfExperience}</small></p>
+            <p><small>Number of Recipes: {recipe.numRecipes}</small></p> 
+            <Button variant="primary">Go somewhere</Button>
+          </div>
+        ))}
       </div>
-    </div>
+
+
+
+
+ 
+    //   <CardGroup>
+    //     {recipeData[0]?.recipes.map((recipe) => (
+    //       <Card key={recipe.id} className="w-25">
+    //       <Card.Img variant="top" src={recipe.chefPhoto} />
+    //       <Card.Body>
+    //         <Card.Title>{recipe.chefName}</Card.Title>
+    //         <Card.Text>
+    //         {recipe.bio}
+    //         </Card.Text>
+    //       </Card.Body>
+    //       <Card.Footer>
+    //         <p><small>Experience: {recipe.yearOfExperience}</small></p>
+    //         <p><small>Number of Recipes: {recipe.numRecipes}</small></p> 
+    // <Button variant="primary">Go somewhere</Button>           
+    //       </Card.Footer>
+    //     </Card>
+    //     ))}
+    //   </CardGroup>
+    
   );
 };
 

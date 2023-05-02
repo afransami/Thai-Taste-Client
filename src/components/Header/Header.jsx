@@ -5,16 +5,15 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <Navbar  className='bg-info bg-opacity-10'>
+        <Navbar  className='bg-info bg-opacity-10 fixed top-0'>
         <Container>
             <Link to='/' className='h3 text-decoration-none'>Thai Test</Link>          
           <div>
           <Nav className="me-auto d-flex gap-5 ">
-            {/* <Link className='text-decoration-none' to= '/' >Home</Link>
-            <Link className='text-decoration-none' to= '/blog' >Blog</Link> */}
-             <Nav.Link as={NavLink} exact to="/" className="active">Home</Nav.Link>
-      <Nav.Link as={NavLink} to="/blog" className="active">Blog</Nav.Link>
-      <button className='btn btn-warning'>Login</button>
+            <Link className='text-decoration-none' to= '/' >Home</Link>
+            <Link className='text-decoration-none' to= '/blog' >Blog</Link>
+            <button className='btn btn-warning'>Login</button>
+            
 
            
             

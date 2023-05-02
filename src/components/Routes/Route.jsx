@@ -8,7 +8,27 @@ import Login from "../Login/Login";
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
-  
+  {
+    path: "/",
+    element: <CardLayout></CardLayout>,
+    children: [
+      {
+        path: "/home",
+        element: <Home></Home>,        
+      },
+      {
+        path: ":id",
+        element: (
+          <PrivateRoute>
+            <RecipeCard></RecipeCard>
+          </PrivateRoute>                
+        ),
+      },
+    ],
+  },
+
+
+
   {
     path: "/",
     element: <LoginLayout></LoginLayout>,
@@ -24,25 +44,7 @@ const router = createBrowserRouter([
     ],
   },
 
-  {
-    path: "card",
-    element: <CardLayout></CardLayout>,
-    children: [
-      {
-        path: "/card",
-        element: <Home></Home>
-      },
-      {
-        path: ":id",
-        element: (
-          <PrivateRoute>
-            <RecipeCard></RecipeCard>
-          </PrivateRoute>
-          
-        ),
-      },
-    ],
-  },
+  
 
 ]);
 
