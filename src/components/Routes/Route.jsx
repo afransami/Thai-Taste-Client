@@ -8,28 +8,29 @@ import Login from "../Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import Blog from "../Blog/Blog";
 import Terms from "../T&C/Terms";
+import Main from "../Layout/Main";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <CardLayout></CardLayout>,
+    element: <Main></Main>,
     children: [
       {
         path: "/",
         element: <Home></Home>,        
       },
       {
-        path: 'blog',
-        element: <Blog></Blog>
-      },
-      {
-        path: ":id",
+        path: "/:id",
         element: (
           <PrivateRoute>
             <RecipeCard></RecipeCard>
           </PrivateRoute>                
         ),
-      },
+      }, 
+      {
+        path: '/blog',
+        element: <Blog></Blog>
+      },          
       
     ],
   },
@@ -41,15 +42,15 @@ const router = createBrowserRouter([
     element: <LoginLayout></LoginLayout>,
     children: [
       {
-        path: "/login",
+        path: "login",
         element: <Login></Login>
       },
       {
-        path: "/register",
+        path: "register",
         element: <Register></Register>
       },
       {
-        path: "/terms",
+        path: "terms",
         element: <Terms></Terms>
       },
     ],

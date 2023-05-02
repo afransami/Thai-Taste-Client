@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
 
-
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
@@ -40,8 +39,8 @@ const Header = () => {
             <Nav className=" align-items-center">
               {user && (
                 <div>
-                <img src={user?.photo} alt="" /> 
-                <FaUserCircle className="fs-1 text-primary text-decoration-none" />
+                  <img src={user?.photo} alt="" />
+                  <FaUserCircle className="fs-1 text-primary text-decoration-none" />
                 </div>
               )}
 
@@ -52,34 +51,13 @@ const Header = () => {
                 </p>
               )}
               {user ? (
-                // <Button
-                //   onClick={handleLogOut}
-                //   variant="secondary"
-                //   className="bg-danger text-white fw-bold"
-                // >
-                //   Logout
-
-                //   </Button>
-
-
-              [""].map((placement) => (
-                  <OverlayTrigger 
-                    key={placement}
-                    placement={placement}
-                    overlay={
-                      <Tooltip id={`tooltip-${placement}`}>
-                        <strong>{placement} </strong>.
-                      </Tooltip>
-                    }
-                  >
-                    <Button variant="secondary" onClick={handleLogOut}                    
-                    className="bg-danger text-white fw-bold">
-                      Log out <br /> {placement}
-                    </Button>
-                  </OverlayTrigger>
-                ))
-
-                
+                <Button
+                  onClick={handleLogOut}
+                  variant="secondary"
+                  className="bg-danger text-white fw-bold"
+                >
+                  Logout
+                </Button>
               ) : (
                 <Link to="/login">
                   <Button

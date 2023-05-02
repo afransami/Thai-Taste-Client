@@ -9,7 +9,7 @@ const Home = () => {
   const [recipeData, setRecipeData] = useState([]);
 
   useEffect(() => {
-    fetch("https://assignment-ten-server-ten.vercel.app/data")
+    fetch("http://localhost:5000/data")
       .then((response) => response.json())
       .then((data) => setRecipeData(data));
   }, []);
@@ -27,8 +27,10 @@ const Home = () => {
             <p>{recipe.bio}</p>
             <p><small>Experience: {recipe.yearOfExperience}</small></p>
             <p><small>Number of Recipes: {recipe.numRecipes}</small></p> 
-            <Link to='/login'><Button variant="primary">Go somewhere</Button>
+            <div className="d-flex justify-between-center gap-4"><Link to={`/data/${recipe?.id}`}><Button variant="primary">Go somewhere</Button>
             </Link>
+            <Link ><Button variant="info">Add bookmark</Button>
+            </Link></div>
           </div>
         ))}
       </div>

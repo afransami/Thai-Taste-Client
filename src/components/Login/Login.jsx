@@ -2,16 +2,37 @@ import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 
 const Login = () => {
   const [show, setShow] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, googleSignIn, githubSignIn } = useContext(AuthContext);
   const Navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+
+  const handleGoogleLogin = ()=>{
+    googleSignIn()
+    .then (result =>{
+      const user = result.user;
+      console.log(user);
+    })
+    .catch (error=> console.error(error))  
+  }
+
+  const handleGithubSign = ()=>{
+    githubSignIn()
+    .then (result =>{
+      const user = result.user; 
+      console.log(user);       
+    })
+    .catch (error =>{
+      console.error(error);
+    })
+  }
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -64,6 +85,17 @@ const Login = () => {
           Login
         </Button>
         <br />
+        <hr />
+        <div className="d-flex justify-between align-items-center">
+        <Button onClick={handleGoogleLogin} className="mb-2" variant="outline-primary">
+        {" "}
+        <FaGoogle /> Login with Google
+      </Button>
+      <Button className="mx-2" onClick={handleGithubSign} variant="outline-secondary">
+        {" "}
+        <FaGithub /> Login with Github
+      </Button>
+        </div>
         <Form.Text className="text-secondary">
           Don't have an account? <Link to="/register">Register</Link>
         </Form.Text>
