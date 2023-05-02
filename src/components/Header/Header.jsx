@@ -37,7 +37,7 @@ const Header = () => {
               Blog
             </Link>
 
-            <Nav className="d-flex align-items-center">
+            <Nav className=" align-items-center">
               {user && (
                 <div>
                 <img src={user?.photo} alt="" /> 
@@ -46,7 +46,7 @@ const Header = () => {
               )}
 
               {user && (
-                <p className="text-success fw-bold mx-2">
+                <p className="d-none d-sm-inline-block text-success fw-bold mx-2">
                   {" "}
                   <span>Welcome</span> <br /> {user ? user.email : user.name}
                 </p>
@@ -63,7 +63,7 @@ const Header = () => {
 
 
               [""].map((placement) => (
-                  <OverlayTrigger
+                  <OverlayTrigger 
                     key={placement}
                     placement={placement}
                     overlay={
