@@ -3,8 +3,8 @@ import { Container, Navbar } from 'react-bootstrap';
 
 const Footer = () => {
     return (
-        <div className='bottom-0'>
-             <Navbar fixed="bottom" className= "bg-info bg-opacity-10">
+        <div>
+             <Navbar className= "bg-info bg-opacity-10">
         <Container className='justify-content-center'>
           <Navbar.Brand>
             <p ><small>&copy;copyright Thai Test</small></p>

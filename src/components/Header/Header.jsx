@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, NavLink, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 // import { FaBeer, FaUserCircle } from "react-icons/fa";
 
@@ -10,9 +10,13 @@ const Header = () => {
             <Link to='/' className='h3 text-decoration-none'>Thai Test</Link>          
           <div>
           <Nav className="me-auto d-flex gap-5 ">
-            <Link className='text-decoration-none' to= '/' >Home</Link>
-            <Link className='text-decoration-none' to= '/blog' >Blog</Link>
-            
+            {/* <Link className='text-decoration-none' to= '/' >Home</Link>
+            <Link className='text-decoration-none' to= '/blog' >Blog</Link> */}
+             <Nav.Link as={NavLink} exact to="/" className="active">Home</Nav.Link>
+      <Nav.Link as={NavLink} to="/blog" className="active">Blog</Nav.Link>
+      <button className='btn btn-warning'>Login</button>
+
+           
             
             {/* <Nav className="d-flex align-items-center">
               {user && (
