@@ -1,8 +1,17 @@
 import React, { useContext } from "react";
-import { Button, Container, Nav, NavLink, Navbar } from "react-bootstrap";
+import {
+  Button,
+  Container,
+  Nav,
+  NavLink,
+  Navbar,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
+
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -30,7 +39,10 @@ const Header = () => {
 
             <Nav className="d-flex align-items-center">
               {user && (
+                <div>
+                <img src={user?.photo} alt="" /> 
                 <FaUserCircle className="fs-1 text-primary text-decoration-none" />
+                </div>
               )}
 
               {user && (
@@ -40,13 +52,34 @@ const Header = () => {
                 </p>
               )}
               {user ? (
-                <Button
-                  onClick={handleLogOut}
-                  variant="secondary"
-                  className="bg-danger text-white fw-bold"
-                >
-                  Logout
-                </Button>
+                // <Button
+                //   onClick={handleLogOut}
+                //   variant="secondary"
+                //   className="bg-danger text-white fw-bold"
+                // >
+                //   Logout
+
+                //   </Button>
+
+
+              [""].map((placement) => (
+                  <OverlayTrigger
+                    key={placement}
+                    placement={placement}
+                    overlay={
+                      <Tooltip id={`tooltip-${placement}`}>
+                        <strong>{placement} </strong>.
+                      </Tooltip>
+                    }
+                  >
+                    <Button variant="secondary" onClick={handleLogOut}                    
+                    className="bg-danger text-white fw-bold">
+                      Log out <br /> {placement}
+                    </Button>
+                  </OverlayTrigger>
+                ))
+
+                
               ) : (
                 <Link to="/login">
                   <Button

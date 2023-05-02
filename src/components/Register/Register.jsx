@@ -8,7 +8,7 @@ const Register = () => {
   const [accepted, setAccepted] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const { loginUser } = useContext(AuthContext);
+  const { registerUser } = useContext(AuthContext);
 
   const handleRegister = (event) => {
     
@@ -19,9 +19,8 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const confirm = form.confirm.value;
-    const photo = form.photo.value;
-    console.log(name, email, password, confirm, photo);
+    const confirm = form.confirm.value;    
+    console.log(name, email, password, confirm);
 
     if (password !== confirm) {
       setError("Password not match");
@@ -29,7 +28,7 @@ const Register = () => {
     }
 
     
-    loginUser (email, password)
+    registerUser (email, password)
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
@@ -54,11 +53,7 @@ const Register = () => {
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Name</Form.Label>
           <Form.Control type="text" name="name" placeholder="Enter your name" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label>Photo url</Form.Label>
-          <Form.Control type="text" name="photo" placeholder="Submit your photo url" />
-        </Form.Group>
+        </Form.Group>        
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
