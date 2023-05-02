@@ -9,7 +9,7 @@ const Home = () => {
   const [recipeData, setRecipeData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/data")
+    fetch("https://assignment-ten-server-ten.vercel.app/data")
       .then((response) => response.json())
       .then((data) => setRecipeData(data));
   }, []);
@@ -27,34 +27,12 @@ const Home = () => {
             <p>{recipe.bio}</p>
             <p><small>Experience: {recipe.yearOfExperience}</small></p>
             <p><small>Number of Recipes: {recipe.numRecipes}</small></p> 
-            <Button variant="primary">Go somewhere</Button>
+            <Link to='/login'><Button variant="primary">Go somewhere</Button>
+            </Link>
           </div>
         ))}
       </div>
 
-
-
-
- 
-    //   <CardGroup>
-    //     {recipeData[0]?.recipes.map((recipe) => (
-    //       <Card key={recipe.id} className="w-25">
-    //       <Card.Img variant="top" src={recipe.chefPhoto} />
-    //       <Card.Body>
-    //         <Card.Title>{recipe.chefName}</Card.Title>
-    //         <Card.Text>
-    //         {recipe.bio}
-    //         </Card.Text>
-    //       </Card.Body>
-    //       <Card.Footer>
-    //         <p><small>Experience: {recipe.yearOfExperience}</small></p>
-    //         <p><small>Number of Recipes: {recipe.numRecipes}</small></p> 
-    // <Button variant="primary">Go somewhere</Button>           
-    //       </Card.Footer>
-    //     </Card>
-    //     ))}
-    //   </CardGroup>
-    
   );
 };
 

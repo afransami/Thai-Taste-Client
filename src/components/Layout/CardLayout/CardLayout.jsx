@@ -8,7 +8,7 @@ const CardLayout = () => {
     return (
         <div>
             <Header></Header>            
-            <Home></Home>
+            <Outlet></Outlet>
             <Footer></Footer>
         </div>
     );

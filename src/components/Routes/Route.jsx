@@ -6,6 +6,8 @@ import LoginLayout from "../Layout/LoginLayout/LoginLayout";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
 import PrivateRoute from "./PrivateRoute";
+import Blog from "../Blog/Blog";
+import Terms from "../T&C/Terms";
 
 const router = createBrowserRouter([
   {
@@ -13,8 +15,12 @@ const router = createBrowserRouter([
     element: <CardLayout></CardLayout>,
     children: [
       {
-        path: "/home",
+        path: "/",
         element: <Home></Home>,        
+      },
+      {
+        path: 'blog',
+        element: <Blog></Blog>
       },
       {
         path: ":id",
@@ -24,6 +30,7 @@ const router = createBrowserRouter([
           </PrivateRoute>                
         ),
       },
+      
     ],
   },
 
@@ -34,12 +41,16 @@ const router = createBrowserRouter([
     element: <LoginLayout></LoginLayout>,
     children: [
       {
-        path: "login",
+        path: "/login",
         element: <Login></Login>
       },
       {
-        path: "register",
+        path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/terms",
+        element: <Terms></Terms>
       },
     ],
   },
