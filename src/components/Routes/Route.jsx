@@ -21,6 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/:id",
+        loader: ({params})=> fetch(`http://localhost:5000/singleRecipe/${params.id}`),
         element: (
           <PrivateRoute>
             <RecipeCard></RecipeCard>
