@@ -1,16 +1,22 @@
 .cardBody {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;    
+    /* display: flex;
+    flex-wrap: wrap; */
+    display: grid;    
+    grid-template-columns: repeat(2, 1fr);
+
   }
   
   .res-card {
-    margin: 1rem;
+    /* margin: 1rem; */
     padding: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 500px;
+    margin: auto;
+    /* margin-bottom: 20px; */
+    margin: 20px 20px;
+    
   }
 
   .service-card h2 {

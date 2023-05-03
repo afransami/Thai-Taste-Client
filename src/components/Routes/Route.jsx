@@ -17,26 +17,32 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>,        
+        element: <Home></Home>,
       },
+
       {
-        path: "/:id",
-        loader: ({params})=> fetch(`http://localhost:5000/singleRecipe/${params.id}`),
-        element: (
-          <PrivateRoute>
-            <RecipeCard></RecipeCard>
-          </PrivateRoute>                
-        ),
-      }, 
-      {
-        path: '/blog',
-        element: <Blog></Blog>
-      },          
-      
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
     ],
   },
 
-
+    {
+    path: "/singleRecipe",
+    element: (
+      <PrivateRoute>
+        <CardLayout></CardLayout>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "/singleRecipe/:id",
+        element: <RecipeCard></RecipeCard>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/singleRecipe/${params.id}`),
+      },
+    ],
+  },
 
   {
     path: "/",
@@ -44,21 +50,18 @@ const router = createBrowserRouter([
     children: [
       {
         path: "login",
-        element: <Login></Login>
+        element: <Login></Login>,
       },
       {
         path: "register",
-        element: <Register></Register>
+        element: <Register></Register>,
       },
       {
         path: "terms",
-        element: <Terms></Terms>
+        element: <Terms></Terms>,
       },
     ],
   },
-
-  
-
 ]);
 
 export default router;
