@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Button, Carousel, Col, Container, Row } from "react-bootstrap";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Button, Carousel,  Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./Home.css";
-import RecipeCard from "../RecipeCard/RecipeCard";
-import { Rating } from "@smastrom/react-rating";
+
 
 const Home = () => {
   const [recipeData, setRecipeData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/data")
+    fetch("https://b7a10-chef-recipe-hunter-server-side-afransami-afransami.vercel.app/data")
       .then((response) => response.json())
       .then((resData) => setRecipeData(resData));
   }, []);
@@ -17,44 +16,44 @@ const Home = () => {
   console.log(recipeData);
 
   return (
-    <Container>     
+    <Container>
       <Carousel>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="https://i.ibb.co/q5MZ9Mn/food-1.jpg"
-                alt="First slide"
-              />
-              <Carousel.Caption>
-                <h1>The Thai Test</h1>
-                <h3>An ultimate Taste</h3>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="https://i.ibb.co/V9MtHbF/food-6.jpg"
-                alt="Second slide"
-              />
+        <Carousel.Item>
+          <img
+            className="d-block w-100 mh-100"
+            src="https://i.ibb.co/q5MZ9Mn/food-1.jpg"
+            alt="First slide"
+          />
+          <Carousel.Caption>
+            <h1>The Thai Test</h1>
+            <h3>An ultimate Taste</h3>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100 mh-100"
+            src="https://i.ibb.co/V9MtHbF/food-6.jpg"
+            alt="Second slide"
+          />
 
-              <Carousel.Caption>
-                <h1>The Thai Test</h1>
-                <h3>An ultimate Taste</h3>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="https://i.ibb.co/gdLbxf4/cover-Photo.jpg"
-                alt="Third slide"
-              />
+          <Carousel.Caption>
+            <h1>The Thai Test</h1>
+            <h3>An ultimate Taste</h3>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100 mh-100"
+            src="https://i.ibb.co/gdLbxf4/cover-Photo.jpg"
+            alt="Third slide"
+          />
 
-              <Carousel.Caption>
-                <h1>The Thai Test</h1>
-                <h3>An ultimate Taste</h3>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
+          <Carousel.Caption>
+            <h1>The Thai Test</h1>
+            <h3>An ultimate Taste</h3>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
       <Container className="cardBody">
         {recipeData?.map((recipe) => (
           <div key={recipe.id} className="res-card">

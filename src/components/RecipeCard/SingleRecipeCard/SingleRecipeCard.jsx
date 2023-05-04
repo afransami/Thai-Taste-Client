@@ -32,7 +32,7 @@ const SingleRecipeCard = ({ singleRecipe }) => {
       ))}
 
       <p>
-        <h6>Recipe Cooking Method:</h6>
+        <span className="fw-bold">Recipe Cooking Method:</span>
         {method}
       </p>
 

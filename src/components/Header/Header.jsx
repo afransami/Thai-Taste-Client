@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import {
   Button,
   Container,
+  Image,
   Nav,
   NavLink,
   Navbar,
@@ -51,29 +52,33 @@ const Header = () => {
                 <div className="d-flex">
                   <p className="d-none d-sm-inline-block text-success fw-bold mx-2">
                     {" "}
-                    <small>                    
-                    
-                      <span>Welcome</span> {" "}
-                      {user ? <img style={{ height: 40 }} src={user.photoURL} alt="" /> : '' }
+                    <small>
+                      <span>Welcome</span>{" "}
+                      {user ? (
+                        <img
+                          style={{ height: 40 }}
+                          src={user.photoURL}
+                          alt=""
+                        />
+                      ) : (
+                        ""
+                      )}
                     </small>
                   </p>
-                  <div>
-                    <img style={{ height: 40 }} src={user?.photo} alt="" />
-                    {/* <FaUserCircle className="fs-1 text-primary text-decoration-none" /> */}
+                  <div>                  
+                    <img style={{ height: 40 }} src={user?.photo} alt="" />                  
                   </div>
                 </div>
               )}
               {user ? (
-                <div className="gap-4">
-                  <FaUserCircle className="fs-1 text-primary text-decoration-none"></FaUserCircle>
+                <div className="gap-4">                 
                   <Button
-                  onClick={handleLogOut}
-                  variant="secondary"
-                  className="bg-danger text-white fw-bold"
-                >
-                  Logout
-                </Button>
-                
+                    onClick={handleLogOut}
+                    variant="secondary"
+                    className="bg-danger text-white fw-bold"
+                  >
+                    Logout
+                  </Button>
                 </div>
               ) : (
                 <Link to="/login">

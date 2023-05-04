@@ -1,7 +1,7 @@
 import React from "react";
-import { Accordion, Col, Container, Nav, Navbar, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import logo from "../../assets/images/logo.jpg";
+import { Accordion, Container } from "react-bootstrap";
+
+
 
 const Blog = () => {
   return (

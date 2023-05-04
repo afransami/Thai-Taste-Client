@@ -1,26 +1,27 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-import app from '../../firebase/firebase.config';
-
+import React, { createContext, useEffect, useState } from "react";
+import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+import app from "../../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
-
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
 
   const registerUser = (email, password) => {
-    setLoading (true)
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
-
-  // const userProfile = ()=>{
-  //   setLoading(true);
-  //   return updateProfile(auth.currentUser)
-  // };
-  
 
   const googleSignIn = () => {
     setLoading(true);
@@ -35,7 +36,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const loginUser = (email, password) => {
-    setLoading (true)
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -46,17 +47,25 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (loggedInUser) => {
       setUser(loggedInUser);
-      setLoading (false)
+      setLoading(false);
     });
     return () => {
       unsubscribe();
     };
   }, []);
 
-  const authInfo = { registerUser, user, logOut, loginUser, loading, googleSignIn, githubSignIn };
+  const authInfo = {
+    registerUser,
+    user,
+    logOut,
+    loginUser,
+    loading,
+    googleSignIn,
+    githubSignIn,
+  };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
-    );
+  );
 };
 
 export default AuthProvider;

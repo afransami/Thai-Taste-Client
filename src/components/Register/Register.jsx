@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Button, Container, Form } from "react-bootstrap";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
@@ -42,15 +42,14 @@ const Register = () => {
       });
   };
 
-  const userUpdate = (user, name, photoUrl)=>{
-    updateProfile((user), {
-      displayName: name, photoURL: photoUrl,
-    }).then(() => {    
-    }).catch((error) => {      
-    });
+  const userUpdate = (user, name, photoUrl) => {
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photoUrl,
+    })
+      .then(() => {})
+      .catch((error) => {});
   };
-
-
 
   const handleTerms = (event) => {
     setAccepted(event.target.checked);
@@ -66,7 +65,11 @@ const Register = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Photo Url</Form.Label>
-          <Form.Control type="text" name="photoUrl" placeholder="Enter your photo Url" />
+          <Form.Control
+            type="text"
+            name="photoUrl"
+            placeholder="Enter your photo Url"
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>

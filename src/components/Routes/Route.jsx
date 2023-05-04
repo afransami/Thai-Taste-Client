@@ -29,7 +29,7 @@ const router = createBrowserRouter([
     ],
   },
 
-    {
+  {
     path: "/data",
     element: (
       <PrivateRoute>
@@ -41,7 +41,9 @@ const router = createBrowserRouter([
         path: "/data/:id",
         element: <RecipeCard></RecipeCard>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/data/${params.id}`),
+          fetch(
+            `https://b7a10-chef-recipe-hunter-server-side-afransami-afransami.vercel.app/data/${params.id}`
+          ),
       },
     ],
   },
