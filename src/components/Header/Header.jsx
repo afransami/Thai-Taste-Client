@@ -3,13 +3,12 @@ import {
   Button,
   Container,
   Image,
-  Nav,
-  NavLink,
+  Nav,  
   Navbar,
   OverlayTrigger,
   Tooltip,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
 
@@ -29,7 +28,7 @@ const Header = () => {
       className="bg-info bg-opacity-10 fixed top-0 header "
     >
       <Container>
-        <Link to="/" className="h3 text-decoration-none">
+        <NavLink to="/" className="h3 text-decoration-none active">
           <img
             style={{ height: 60 }}
             className=""
@@ -37,15 +36,15 @@ const Header = () => {
             alt=""
           />
           <span className="fw-bold">Thai Test</span>
-        </Link>
+        </NavLink>
         <div>
           <Nav className="me-auto d-flex gap-5 ">
-            <Link className="text-decoration-none active" to="/">
+            <NavLink className="text-decoration-none" activeClassName="active" to="/">
               Home
-            </Link>
-            <Link className="text-decoration-none" to="/blog">
+            </NavLink>
+            <NavLink className="text-decoration-none" activeClassName="active" to="/blog">
               Blog
-            </Link>
+            </NavLink>
 
             <Nav className=" align-items-center">
               {user && (
