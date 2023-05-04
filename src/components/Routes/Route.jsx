@@ -30,7 +30,7 @@ const router = createBrowserRouter([
   },
 
     {
-    path: "/singleRecipe",
+    path: "/data",
     element: (
       <PrivateRoute>
         <CardLayout></CardLayout>
@@ -38,10 +38,10 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/singleRecipe/:id",
+        path: "/data/:id",
         element: <RecipeCard></RecipeCard>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/singleRecipe/${params.id}`),
+          fetch(`http://localhost:5000/data/${params.id}`),
       },
     ],
   },

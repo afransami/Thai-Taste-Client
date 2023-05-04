@@ -69,7 +69,7 @@ const Home = () => {
             </p>
 
             <div className="d-flex justify-between-center gap-4">
-              <Link to={`/singleRecipe/${recipe?.id}`}>
+              <Link to={`/data/${recipe?.id}`}>
                 <Button variant="primary">View Recipes</Button>
               </Link>
             </div>

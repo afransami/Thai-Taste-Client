@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const [accepted, setAccepted] = useState(false);
@@ -33,12 +34,23 @@ const Register = () => {
         setSuccess("Registered successfully");
         setError("");
         form.reset("");
+        userUpdate(result.user, name, photoUrl);
       })
       .catch((error) => {
         console.error(error.message);
         setError(error.message);
       });
   };
+
+  const userUpdate = (user, name, photoUrl)=>{
+    updateProfile((user), {
+      displayName: name, photoURL: photoUrl,
+    }).then(() => {    
+    }).catch((error) => {      
+    });
+  };
+
+
 
   const handleTerms = (event) => {
     setAccepted(event.target.checked);

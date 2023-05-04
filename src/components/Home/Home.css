@@ -1,7 +1,6 @@
 .cardBody {
     display: flex;
-    flex-wrap: wrap;
-    display: grid;    
+    flex-wrap: wrap;    
     grid-template-columns: repeat(2, 1fr);
 
   }

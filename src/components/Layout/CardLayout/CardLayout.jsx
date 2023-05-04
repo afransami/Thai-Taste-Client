@@ -6,9 +6,11 @@ import Footer from '../../Footer/Footer';
 
 const CardLayout = () => {
     return (
-        <div>
-            <Header></Header>            
+        <div className='d-flex flex-column justify-content-between'>
+           <div >
+           <Header></Header>            
             <Outlet></Outlet>
+           </div>
             <Footer></Footer>
         </div>
     );

@@ -5,7 +5,7 @@ import { Col, Container, Navbar, Row } from 'react-bootstrap';
 const Footer = () => {
     return (
         
-          <div bg="primary" variant="light" className="bg-info bg-opacity-10 pt-3">
+          <div bg="primary" variant="light" className="bg-info bg-opacity-10 pt-3  position-static">
             <Container>
         <Row>
           <Col md={12}>

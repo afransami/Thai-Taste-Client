@@ -5,79 +5,53 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { FaHeart } from "react-icons/fa";
 import "./RecipeCard.css";
+import SingleRecipeCard from "./SingleRecipeCard/SingleRecipeCard";
+
 
 const RecipeCard = () => {
-  const { id } = useParams();
+  // const { id } = useParams();
   const singleRecipe = useLoaderData();
-
-  console.log(id);
+  const {
+    id,
+    chefName,
+    chefPhoto,
+    bio,
+    numRecipes,
+    rating,
+    like,
+    recipe,
+    recipePhoto,
+    yearOfExperience,
+  } = singleRecipe;
+  // console.log(id, singleRecipe);
 
   return (
-    <Container className="cardBody">
-      {singleRecipe?.map((recipe) => (
-        <div key={recipe.id} className="res-card d-flex">
-          <div>
-            <img className="fluid w-100" src={recipe.chefPhoto} alt="" />
-            <h2>{recipe.chefName}</h2>
-            <p>{recipe.bio}</p>
-            <p>
-              <small>Experience: {recipe.yearOfExperience}</small> <br />
-              <small>Number of Recipes: {recipe.numRecipes}</small>
-              <br />
-              <small>Likes: {recipe.like}</small>
-              {/* <div className="d-flex align-items-center justify-between-center ">
-                <p>Rating:</p>
-                <Rating
-                  style={{ maxWidth: 150 }}
-                  value={Math.round(recipe.item?.rating.number || 0)}
-                  readOnly
-                />
-                <span className="ms-2"> {recipe.item?.rating.number}</span>
-              </div> */}
-            </p>
-
-            <div className="d-flex justify-between-center gap-4">
-              {/* <div>
-                <FaHeart className="text-danger"></FaHeart>
-              </div> */}
-              <Link to="/">
-                <Button variant="primary">Go Home</Button>
-              </Link>
+    <div>
+      <Container>
+        <div className="d-flex justify-content-between gap-4 mt-5 p-2 border rounded shadow">
+          <div >
+            <img src={chefPhoto} alt="" />
+            <div className="">
+            <h2>{chefName}</h2>
+            <p>{bio}</p>
+            <div className="d-flex justify-content-between">
+            <p>Likes: {like}</p>
+            <p>Number of Recepi: {numRecipes}</p>
+            <p>Experience: {yearOfExperience}</p>
             </div>
           </div>
-
-          <div className="d-flex justify-between-center gap-4">
-            <ul>
-              {recipe.recipe?.map((item) => (
-                <li key={item?.id}>
-                  <h5 className="mt-3">Recipe Name: {item.name}</h5>
-                  <span>
-                    <h6>Recipe Ingredients:</h6> {item.ingredients}
-                  </span>{" "}
-                  <br />
-                  <span>
-                    <h6>Cooking Method:</h6> {item.method}
-                  </span>
-                  <br />
-                  <div className="d-flex align-items-center justify-between-center ">
-                <h5>Rating:</h5>
-                <Rating
-                  style={{ maxWidth: 150 }}
-                  value={Math.round(recipe.item?.rating.number || 0)}
-                  readOnly
-                />
-                <span className="ms-2"> {recipe.item?.rating.number}</span>
-                <div>
-                <FaHeart className="text-danger"></FaHeart>
-              </div>
-              </div>
-                </li>
-              ))}
-            </ul>
           </div>
+
+          
+
+
         </div>
-      ))}
-    </Container>
+       <div className="cardBody"> 
+        {
+          recipe.map((singleRecipe, index)=> <SingleRecipeCard key={index} singleRecipe={singleRecipe}></SingleRecipeCard>)}       
+        </div>
+      </Container>
+    </div>    
   );
 };
 
