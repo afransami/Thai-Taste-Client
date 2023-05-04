@@ -11,6 +11,8 @@ import {
 import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
+import logo from '../../assets/images/logo.jpg'
+
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -26,7 +28,9 @@ const Header = () => {
       <Container>
         <Link to="/" className="h3 text-decoration-none">
           Thai Test
+          <img style={{height: 40}} className="" src={logo} alt="" />
         </Link>
+
         <div>
           <Nav className="me-auto d-flex gap-5 ">
             <Link className="text-decoration-none" to="/">

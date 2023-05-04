@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import "./Home.css";
+import RecipeCard from "../RecipeCard/RecipeCard";
+import { Rating } from "@smastrom/react-rating";
 
 const Home = () => {
   const [recipeData, setRecipeData] = useState([]);
@@ -16,28 +18,25 @@ const Home = () => {
 
   return (
     <Container className="cardBody">
-      {recipeData?.map((recipe) => (
+      {recipeData?.map((recipe) => (        
         <div key={recipe.id} className="res-card">
           <img className="fluid w-100" src={recipe.chefPhoto} alt="" />
-          <h2>{recipe.chefName}</h2>
-          <p>{recipe.bio}</p>
+          <h2>{recipe.chefName}</h2>       
           <p>
-            <small>Experience: {recipe.yearOfExperience}</small>
-          </p>
-          <p>
-            <small>Number of Recipes: {recipe.numRecipes}</small>
-          </p>
+            <small>Experience: {recipe.yearOfExperience}</small><br />
+            <small>Number of recipes: {recipe.numRecipes}</small><br />
+            <small>Like: {recipe.like}</small>
+          </p>        
+                    
           <div className="d-flex justify-between-center gap-4">
             <Link to={`/singleRecipe/${recipe?.id}`}>
-              <Button variant="primary">Details</Button>
-            </Link>
-            <Link>
-              <Button variant="info">Add bookmark</Button>
-            </Link>
-          </div>
-        </div>
+              <Button variant="primary">View Recipes</Button>
+            </Link>                           
+          </div>         
+        </div>        
       ))}
-    </Container>
+      
+    </Container>    
   );
 };
 

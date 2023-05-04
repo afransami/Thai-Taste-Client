@@ -1,6 +1,6 @@
 .cardBody {
-    /* display: flex;
-    flex-wrap: wrap; */
+    display: flex;
+    flex-wrap: wrap;
     display: grid;    
     grid-template-columns: repeat(2, 1fr);
 
@@ -14,25 +14,6 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 500px;
     margin: auto;
-    /* margin-bottom: 20px; */
     margin: 20px 20px;
     
-  }
-
-  .service-card h2 {
-    margin-top: 0;
-  }
-  
-  .service-card ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  .service-card li {
-    margin-bottom: 0.5rem;
-  }
-  
-  .service-card p:last-of-type {
-    margin-bottom: 0;
   }
