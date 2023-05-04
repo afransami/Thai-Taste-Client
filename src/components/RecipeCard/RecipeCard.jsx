@@ -25,32 +25,31 @@ const RecipeCard = () => {
               <small>Number of Recipes: {recipe.numRecipes}</small>
               <br />
               <small>Likes: {recipe.like}</small>
-              <div className="d-flex align-items-center justify-between-center ">
-              <p>Rating:</p>
-              <Rating
-                style={{ maxWidth: 150 }}
-                value={Math.round(recipe.item?.rating.number || 0)}
-                readOnly
-              />
-              <span className="ms-2"> {recipe.item?.rating.number}</span>
-            </div>  
+              {/* <div className="d-flex align-items-center justify-between-center ">
+                <p>Rating:</p>
+                <Rating
+                  style={{ maxWidth: 150 }}
+                  value={Math.round(recipe.item?.rating.number || 0)}
+                  readOnly
+                />
+                <span className="ms-2"> {recipe.item?.rating.number}</span>
+              </div> */}
             </p>
 
-
             <div className="d-flex justify-between-center gap-4">
-            <div>
-              <FaHeart className="text-danger"></FaHeart>
+              {/* <div>
+                <FaHeart className="text-danger"></FaHeart>
+              </div> */}
+              <Link to="/">
+                <Button variant="primary">Go Home</Button>
+              </Link>
             </div>
-            <Link to="/">
-              <Button variant="primary">Go Home</Button>
-            </Link>            
           </div>
-          </div>
-          
+
           <div className="d-flex justify-between-center gap-4">
             <ul>
               {recipe.recipe?.map((item) => (
-                <li key={item?.id}>                  
+                <li key={item?.id}>
                   <h5 className="mt-3">Recipe Name: {item.name}</h5>
                   <span>
                     <h6>Recipe Ingredients:</h6> {item.ingredients}
@@ -59,12 +58,25 @@ const RecipeCard = () => {
                   <span>
                     <h6>Cooking Method:</h6> {item.method}
                   </span>
+                  <br />
+                  <div className="d-flex align-items-center justify-between-center ">
+                <h5>Rating:</h5>
+                <Rating
+                  style={{ maxWidth: 150 }}
+                  value={Math.round(recipe.item?.rating.number || 0)}
+                  readOnly
+                />
+                <span className="ms-2"> {recipe.item?.rating.number}</span>
+                <div>
+                <FaHeart className="text-danger"></FaHeart>
+              </div>
+              </div>
                 </li>
               ))}
-            </ul>          
+            </ul>
           </div>
-        </div>        
-      ))}      
+        </div>
+      ))}
     </Container>
   );
 };

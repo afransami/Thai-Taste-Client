@@ -19,6 +19,7 @@ const Login = () => {
     .then (result =>{
       const user = result.user;      
       console.log(user);
+      Navigate(from, { replace: true });
     })
     .catch (error=> console.error(error))  
   }
@@ -27,7 +28,8 @@ const Login = () => {
     githubSignIn()
     .then (result =>{
       const user = result.user; 
-      console.log(user);       
+      console.log(user); 
+      Navigate(from, { replace: true });    
     })
     .catch (error =>{
       console.error(error);
@@ -62,7 +64,7 @@ const Login = () => {
       <Form onSubmit={handleLogin}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" name="email" placeholder="Enter email" />
+          <Form.Control type="email" name="email" placeholder="Enter email" required />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">

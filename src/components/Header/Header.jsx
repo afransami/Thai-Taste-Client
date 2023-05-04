@@ -29,13 +29,13 @@ const Header = () => {
     >
       <Container>
         <Link to="/" className="h3 text-decoration-none">
-          Thai Test
           <img
             style={{ height: 60 }}
             className=""
             src="https://i.ibb.co/Btp7F7V/chef-food-logo.png"
             alt=""
           />
+          <span className="fw-bold">Thai Test</span>
         </Link>
         <div>
           <Nav className="me-auto d-flex gap-5 ">
@@ -48,17 +48,19 @@ const Header = () => {
 
             <Nav className=" align-items-center">
               {user && (
-                <div>
-                  <img src={user?.photo} alt="" />
-                  <FaUserCircle className="fs-1 text-primary text-decoration-none" />
+                <div className="d-flex">
+                  <p className="d-none d-sm-inline-block text-success fw-bold mx-2">
+                    {" "}
+                    <small>
+                      <span>Welcome</span> <br />{" "}
+                      {user ? user.email : user.name}
+                    </small>
+                  </p>
+                  <div>
+                    <img style={{ height: 40 }} src={user?.photo} alt="" />
+                    {/* <FaUserCircle className="fs-1 text-primary text-decoration-none" /> */}
+                  </div>
                 </div>
-              )}
-
-              {user && (
-                <p className="d-none d-sm-inline-block text-success fw-bold mx-2">
-                  {" "}
-                  <span>Welcome</span> <br /> {user ? user.email : user.name}
-                </p>
               )}
               {user ? (
                 <Button

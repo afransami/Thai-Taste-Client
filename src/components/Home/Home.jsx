@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Carousel, Container } from "react-bootstrap";
+import { Button, Carousel, Col, Container, Row } from "react-bootstrap";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import "./Home.css";
 import RecipeCard from "../RecipeCard/RecipeCard";
@@ -17,71 +17,66 @@ const Home = () => {
   console.log(recipeData);
 
   return (
-<Container>
-<Carousel>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://i.ibb.co/q5MZ9Mn/food-1.jpg"
-            alt="First slide"
-          />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://i.ibb.co/V9MtHbF/food-6.jpg"
-            alt="Second slide"
-          />
+    <Container>     
+      <Carousel>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="https://i.ibb.co/q5MZ9Mn/food-1.jpg"
+                alt="First slide"
+              />
+              <Carousel.Caption>
+                <h1>The Thai Test</h1>
+                <h3>An ultimate Taste</h3>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="https://i.ibb.co/V9MtHbF/food-6.jpg"
+                alt="Second slide"
+              />
 
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://i.ibb.co/gdLbxf4/cover-Photo.jpg"
-            alt="Third slide"
-          />
+              <Carousel.Caption>
+                <h1>The Thai Test</h1>
+                <h3>An ultimate Taste</h3>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="https://i.ibb.co/gdLbxf4/cover-Photo.jpg"
+                alt="Third slide"
+              />
 
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
+              <Carousel.Caption>
+                <h1>The Thai Test</h1>
+                <h3>An ultimate Taste</h3>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+      <Container className="cardBody">
+        {recipeData?.map((recipe) => (
+          <div key={recipe.id} className="res-card">
+            <img className="fluid w-100" src={recipe.chefPhoto} alt="" />
+            <h2>{recipe.chefName}</h2>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              <small>Experience: {recipe.yearOfExperience}</small>
+              <br />
+              <small>Number of recipes: {recipe.numRecipes}</small>
+              <br />
+              <small>Like: {recipe.like}</small>
             </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
 
-
-    <Container className="cardBody">    
-      {recipeData?.map((recipe) => (
-        <div key={recipe.id} className="res-card">
-          <img className="fluid w-100" src={recipe.chefPhoto} alt="" />
-          <h2>{recipe.chefName}</h2>
-          <p>
-            <small>Experience: {recipe.yearOfExperience}</small>
-            <br />
-            <small>Number of recipes: {recipe.numRecipes}</small>
-            <br />
-            <small>Like: {recipe.like}</small>
-          </p>
-
-          <div className="d-flex justify-between-center gap-4">
-            <Link to={`/singleRecipe/${recipe?.id}`}>
-              <Button variant="primary">View Recipes</Button>
-            </Link>
+            <div className="d-flex justify-between-center gap-4">
+              <Link to={`/singleRecipe/${recipe?.id}`}>
+                <Button variant="primary">View Recipes</Button>
+              </Link>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </Container>
     </Container>
-
-</Container>
   );
 };
 

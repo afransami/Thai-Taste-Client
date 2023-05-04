@@ -1,12 +1,12 @@
 import React from 'react';
 import { Col, Container, Navbar, Row } from 'react-bootstrap';
-// import footer from './Footer.css'
 
 
 const Footer = () => {
     return (
         
-          <Container>
+          <div bg="primary" variant="light" className="bg-info bg-opacity-10 pt-3">
+            <Container>
         <Row>
           <Col md={12}>
             <h3>About Thai Test</h3>
@@ -25,7 +25,8 @@ const Footer = () => {
             <p className="text-muted">© 2023 Thai Test. All rights reserved.</p>
           </Col>
         </Row>
-      </Container>     
+      </Container>
+          </div>     
     );
 };
 

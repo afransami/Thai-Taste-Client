@@ -3,39 +3,36 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 
-
 const Register = () => {
   const [accepted, setAccepted] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const { registerUser } = useContext(AuthContext);
 
-
   const handleRegister = (event) => {
-    
     event.preventDefault();
     setSuccess("");
-    
+
     const form = event.target;
     const name = form.name.value;
+    const photoUrl = form.photoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
-    const confirm = form.confirm.value;    
-    console.log(name, email, password, confirm);
+    const confirm = form.confirm.value;
+    console.log(name, photoUrl, email, password, confirm);
 
     if (password !== confirm) {
       setError("Password not match");
       return;
     }
 
-    
-    registerUser (email, password)
+    registerUser(email, password)
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
         setSuccess("Registered successfully");
         setError("");
-        form.reset("");    
+        form.reset("");
       })
       .catch((error) => {
         console.error(error.message);
@@ -54,7 +51,11 @@ const Register = () => {
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Name</Form.Label>
           <Form.Control type="text" name="name" placeholder="Enter your name" />
-        </Form.Group>        
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicName">
+          <Form.Label>Photo Url</Form.Label>
+          <Form.Control type="text" name="photoUrl" placeholder="Enter your photo Url" />
+        </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
