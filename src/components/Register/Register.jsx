@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Button, Container, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 
 
 const Register = () => {
@@ -9,6 +9,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const { registerUser } = useContext(AuthContext);
+
 
   const handleRegister = (event) => {
     
@@ -34,7 +35,7 @@ const Register = () => {
         console.log(loggedUser);
         setSuccess("Registered successfully");
         setError("");
-        form.reset("");
+        form.reset("");    
       })
       .catch((error) => {
         console.error(error.message);

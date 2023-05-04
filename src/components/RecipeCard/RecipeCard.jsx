@@ -45,19 +45,16 @@ const RecipeCard = () => {
               <Button variant="primary">Go Home</Button>
             </Link>            
           </div>
-
           </div>
-
           
-
           <div className="d-flex justify-between-center gap-4">
             <ul>
               {recipe.recipe?.map((item) => (
                 <li key={item?.id}>                  
                   <h5 className="mt-3">Recipe Name: {item.name}</h5>
-                  {/* <span>
+                  <span>
                     <h6>Recipe Ingredients:</h6> {item.ingredients}
-                  </span>{" "} */}
+                  </span>{" "}
                   <br />
                   <span>
                     <h6>Cooking Method:</h6> {item.method}

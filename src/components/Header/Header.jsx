@@ -11,8 +11,6 @@ import {
 import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
-import logo from '../../assets/images/logo.jpg'
-
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -24,13 +22,21 @@ const Header = () => {
   };
 
   return (
-    <Navbar className="bg-info bg-opacity-10 fixed top-0">
+    <Navbar
+      bg="primary"
+      variant="light"
+      className="bg-info bg-opacity-10 fixed top-0 header "
+    >
       <Container>
         <Link to="/" className="h3 text-decoration-none">
           Thai Test
-          <img style={{height: 40}} className="" src={logo} alt="" />
+          <img
+            style={{ height: 60 }}
+            className=""
+            src="https://i.ibb.co/Btp7F7V/chef-food-logo.png"
+            alt=""
+          />
         </Link>
-
         <div>
           <Nav className="me-auto d-flex gap-5 ">
             <Link className="text-decoration-none" to="/">
