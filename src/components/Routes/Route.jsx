@@ -10,6 +10,7 @@ import Blog from "../Blog/Blog";
 import Terms from "../T&C/Terms";
 import Main from "../Layout/Main";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import About from "../About/About";
 
 const router = createBrowserRouter([
   {
@@ -21,10 +22,13 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
-
       {
         path: "/blog",
         element: <Blog></Blog>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
     ],
   },

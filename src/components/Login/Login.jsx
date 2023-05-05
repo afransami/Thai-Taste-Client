@@ -82,11 +82,10 @@ const Login = () => {
         </Form.Group>
         <p className="my-3" onClick={() => setShow(!show)}>
           <small>
-            {show ? <span>Hide Password</span> : <span>Show Password</span>}
+            {show ? <Button>Hide Password</Button> : <Button>Show Password</Button>}
           </small>
         </p>
-
-        <br />
+       
         <Button variant="primary" type="submit">
           Login
         </Button>
@@ -102,7 +101,7 @@ const Login = () => {
             <FaGoogle /> Login with Google
           </Button>
           <Button
-            className="mx-2"
+            className="mx-2 mb-2"
             onClick={handleGithubSign}
             variant="outline-secondary"
           >

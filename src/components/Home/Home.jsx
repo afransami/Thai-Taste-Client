@@ -54,7 +54,10 @@ const Home = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <Container className="cardBody">
+      
+      <div className="mt-5 text-center "><h1>Meet Our chefs</h1></div>
+
+      <Container className="cardBody">        
         {recipeData?.map((recipe) => (
           <div key={recipe.id} className="res-card">
             <img className="fluid w-100" src={recipe.chefPhoto} alt="" />
@@ -69,7 +72,7 @@ const Home = () => {
 
             <div className="d-flex justify-between-center gap-4">
               <Link to={`/data/${recipe?.id}`}>
-                <Button variant="primary">View Recipes</Button>
+                <Button variant="primary" className="btn-view-recipes">View Recipes</Button>
               </Link>
             </div>
           </div>

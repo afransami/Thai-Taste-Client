@@ -6,9 +6,9 @@ const Footer = () => {
     <div
       bg="primary"
       variant="light"
-      className="bg-info bg-opacity-10 pt-3  position-static"
+      className="pt-3  position-static"
     >
-      <Container>
+      <Container className="bg-info bg-opacity-10">
         <Row>
           <Col md={12}>
             <h3>About Thai Test</h3>
