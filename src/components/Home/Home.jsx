@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Carousel,  Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Home.css";
+import ClientReviewSection from "../ClientReviewSection/ClientReviewSection";
 
 
 const Home = () => {
@@ -24,7 +25,7 @@ const Home = () => {
             src="https://i.ibb.co/q5MZ9Mn/food-1.jpg"
             alt="First slide"
           />
-          <Carousel.Caption>
+          <Carousel.Caption className="cover-caption">
             <h1>The Thai Test</h1>
             <h3>An ultimate Taste</h3>
           </Carousel.Caption>
@@ -78,6 +79,8 @@ const Home = () => {
           </div>
         ))}
       </Container>
+
+      <ClientReviewSection></ClientReviewSection>
     </Container>
   );
 };

@@ -6,7 +6,7 @@ const Footer = () => {
     <div
       bg="primary"
       variant="light"
-      className="pt-3  position-static"
+      className="pt-3"
     >
       <Container className="bg-info bg-opacity-10">
         <Row>
