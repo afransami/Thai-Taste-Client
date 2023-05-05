@@ -63,13 +63,6 @@ const Header = () => {
               >
                 Blog
               </NavLink>
-              <NavLink
-                className="mx-4 text-decoration-none"
-                activeClassName="active"
-                to="/about"
-              >
-                About
-              </NavLink>
             </Nav>
 
             <Nav className=" align-items-center">

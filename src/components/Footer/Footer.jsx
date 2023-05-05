@@ -3,15 +3,11 @@ import { Col, Container, Navbar, Row } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <div
-      bg="primary"
-      variant="light"
-      className="pt-3"
-    >
+    <div bg="primary" variant="light" className="pt-3">
       <Container className="bg-info bg-opacity-10">
         <Row>
           <Col md={12}>
-            <h3>About Thai Test</h3>
+            <h3>About Thai Taste</h3>
             <p>
               Thai Test Recipe is your one-stop-shop for finding delicious and
               healthy recipes for every meal of the day. Our mission is to help
@@ -37,7 +33,9 @@ const Footer = () => {
         <hr />
         <Row>
           <Col md={12}>
-            <p className="text-muted">© 2023 Thai Test. All rights reserved.</p>
+            <p className="text-muted">
+              © 2023 Thai Taste. All rights reserved.
+            </p>
           </Col>
         </Row>
       </Container>

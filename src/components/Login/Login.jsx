@@ -82,10 +82,14 @@ const Login = () => {
         </Form.Group>
         <p className="my-3" onClick={() => setShow(!show)}>
           <small>
-            {show ? <Button>Hide Password</Button> : <Button>Show Password</Button>}
+            {show ? (
+              <Button>Hide Password</Button>
+            ) : (
+              <Button>Show Password</Button>
+            )}
           </small>
         </p>
-       
+
         <Button variant="primary" type="submit">
           Login
         </Button>

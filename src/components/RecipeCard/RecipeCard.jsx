@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
 import "@smastrom/react-rating/style.css";
 import SingleRecipeCard from "./SingleRecipeCard/SingleRecipeCard";
@@ -14,26 +14,37 @@ const RecipeCard = () => {
     numRecipes,
     yearOfExperience,
     like,
-    recipe
+    recipe,
   } = singleRecipe;
 
   return (
     <div>
       <Container>
-        <div className="d-flex justify-content-between gap-4 mt-5 p-2 border rounded shadow">
-          <div className="flex-sm-row-reverse">
-            <img src={chefPhoto} alt="" />
-            <div className="">
-              <h2>{chefName}</h2>
-              <p>{bio}</p>
-              <div className="d-flex justify-content-between">
-                <p>Likes: {like}</p>
-                <p>Number of Recipe: {numRecipes}</p>
-                <p>Experience: {yearOfExperience}</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Row>
+          <Col className="card-deck gap-5 d-flex flex-wrap align-items-center justify-content-evenly">
+            <Card className="w-75">
+              <Card.Img
+                variant="top"
+                className="w-100 img-fluid"
+                src={chefPhoto}
+              />
+              <Card.Body>
+                <Card.Title>{chefName}</Card.Title>
+                <Card.Text>Biography: {bio}</Card.Text>
+              </Card.Body>
+              <Card.Footer className="d-flex justify-content-evenly ">
+                <small className="text-muted">Like:{like}</small>
+                <small>
+                  <Card.Text>Experience: {yearOfExperience}</Card.Text>
+                </small>
+                <small>
+                  <Card.Text>Recipes: {numRecipes}</Card.Text>
+                </small>
+              </Card.Footer>
+            </Card>
+          </Col>
+        </Row>
+
         <div className="cardBody">
           {recipe.map((singleRecipe, index) => (
             <SingleRecipeCard

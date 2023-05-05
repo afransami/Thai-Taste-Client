@@ -1,0 +1,22 @@
+{
+  "featuredRecipes": [
+    {
+      "title": "Tom Yum Soup",
+      "imageUrl": "https://i.ibb.co/sswv6vY/food-2.jpg",
+      "description": "A spicy and sour Thai soup made with shrimp, lemongrass, and chili peppers.",
+      "rating": 4.9
+    },
+    {
+      "title": "Pad Thai",
+      "imageUrl": "https://i.ibb.co/tKbvdvK/food-3.jpg",
+      "description": "A classic Thai stir-fry dish made with rice noodles, vegetables, and peanuts.",
+      "rating": 4.7
+    },
+    {
+      "title": "Green Papaya Salad",
+      "imageUrl": "https://i.ibb.co/q5MZ9Mn/food-1.jpg",
+      "description": "A refreshing and spicy salad made with shredded green papaya, tomatoes, and chili peppers.",
+      "rating": 4.5
+    }
+  ]
+}

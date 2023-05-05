@@ -22,7 +22,7 @@ const SingleRecipeCard = ({ singleRecipe }) => {
   };
 
   return (
-    <div className="res-card border rounded shadow">
+    <div className="res-card border rounded shadow mt-5">
       <h4>Recipe Name:{name}</h4>
 
       {ingredients.map((item, index) => (
